@@ -1,0 +1,474 @@
+{
+	"metadata": {
+		"v": "1.0",
+		"datasources": [
+			{
+				"id": "UserHubCollection",
+				"type": "scalar",
+				"namespace": "",
+				"dataType": "array",
+				"initialValue": [],
+				"events": []
+			},
+			{
+				"id": "enterYourName",
+				"type": "scalar",
+				"namespace": "",
+				"dataType": "string",
+				"initialValue": ""
+			},
+			{
+				"id": "UserId",
+				"type": "scalar",
+				"namespace": "",
+				"dataType": "number",
+				"initialValue": "0"
+			}
+		],
+		"styles": [
+			{
+				"name": "blue-header-alternate-rows",
+				"content": "self {\n  border-radius: 10px;\n  box-shadow: 0 0 40px 0 rgb(0 0 0 / 15%);\n}\n\nself .header .header-cell {\n  background-color: #6c7ae0;\n  color: #fff;\n  font-weight: bold;\n  padding: 1.25rem 2rem;\n}\n\nself .row {\n  align-items: center;\n}\n\nself .row .cell {\n  padding: 0.5rem 2rem;\n}\n\nself .row .cell > span {\n  justify-content: flex-start;\n}\n\nself .row.selected {\n  background-color: #d2d7f5;\n}\n\nself .row-even:not(.selected):not(:hover) {\n  background-color: #f8f6ff;\n}\n\nself .header .resizable > :not([hidden]) ~ :not([hidden]),\nself .row > :not([hidden]) ~ :not([hidden]),\nself .Grid .innerScrollContainer,\nself .Grid .innerScrollContainer > :not([hidden]) ~ :not([hidden]) {\n  border-width: 0;\n}",
+				"parentId": null,
+				"id": "PL652ycE3f6pTdyAeRfgp"
+			}
+		]
+	},
+	"components": {
+		"ROOT": {
+			"type": {
+				"resolvedName": "Container"
+			},
+			"isCanvas": true,
+			"props": {
+				"classNames": [],
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onload"
+						],
+						"id": "dURNEgcWiJi6KCjg3jXMXv",
+						"method": "UserHub.connect",
+						"params": [],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "userId",
+							"type": "Integer",
+							"datasource": "UserId"
+						}
+					},
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onload"
+						],
+						"id": "7wsevD7wCvAB3qbRZyoxLC",
+						"method": "UserHub.getUserList",
+						"params": [],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "userList",
+							"type": "Collection",
+							"datasource": "UserHubCollection"
+						}
+					}
+				],
+				"airyMode": false,
+				"className": "bg-white h-full w-full px-6"
+			},
+			"displayName": "Page",
+			"custom": {},
+			"parent": "",
+			"hidden": false,
+			"nodes": [
+				"rTKB3qIGCh",
+				"ZZ8bsO1PWN"
+			],
+			"linkedNodes": {}
+		},
+		"ZZ8bsO1PWN": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"iterableChild": true,
+				"style": {
+					"display": "flex",
+					"textAlign": "center"
+				}
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"pQD1UQrcH5"
+			],
+			"linkedNodes": {}
+		},
+		"pQD1UQrcH5": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [
+					{
+						"type": "navigation",
+						"id": "mguJZ9DnKKrr1FWbFJnb6C",
+						"events": [
+							"onclick"
+						],
+						"externalLink": false,
+						"loader": "",
+						"parent": "new-tab",
+						"isHardCoded": true
+					}
+				],
+				"iterableChild": true,
+				"style": {
+					"textAlign": "center",
+					"display": "flex"
+				}
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ZZ8bsO1PWN",
+			"hidden": false,
+			"nodes": [
+				"BtInc-_zHj",
+				"-moUKsS0rp",
+				"V6Iq78nKF7"
+			],
+			"linkedNodes": {}
+		},
+		"rTKB3qIGCh": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"JJDf14Ao1T"
+			],
+			"linkedNodes": {}
+		},
+		"JJDf14Ao1T": {
+			"type": {
+				"resolvedName": "DataTable"
+			},
+			"isCanvas": false,
+			"props": {
+				"iterable": true,
+				"classNames": [
+					"blue-header-alternate-rows"
+				],
+				"events": [],
+				"loopable": true,
+				"style": {
+					"height": "650px"
+				},
+				"headerHeight": 50,
+				"rowHeight": 30,
+				"datasource": "UserHubCollection",
+				"columns": [
+					{
+						"title": "ID",
+						"source": "_id",
+						"format": "",
+						"width": "200px",
+						"sorting": false,
+						"id": "mgtYWtdnBhhnvVSMY2ZUmL"
+					},
+					{
+						"title": "Name",
+						"source": "_name",
+						"format": "",
+						"width": "350px",
+						"sorting": false,
+						"id": "9JZGscxDgFaxNhx8wiDmo5"
+					},
+					{
+						"title": "Disconnection",
+						"source": "_disconnectionTime",
+						"format": "",
+						"width": "200px",
+						"sorting": false,
+						"id": "bSa7414kookHbeddKmQ47R"
+					},
+					{
+						"title": "Status",
+						"source": "_statusName",
+						"format": "",
+						"width": "200px",
+						"sorting": false,
+						"id": "qFXqkmN4x6oiDb8kabLph9"
+					}
+				]
+			},
+			"displayName": "DataTable",
+			"custom": {},
+			"parent": "rTKB3qIGCh",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"BtInc-_zHj": {
+			"type": {
+				"resolvedName": "TextInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"placeholder": "placeholder",
+				"label": "label",
+				"labelPosition": "left",
+				"iterableChild": true
+			},
+			"displayName": "Text Input",
+			"custom": {},
+			"parent": "pQD1UQrcH5",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "07C3rk5SYO",
+				"input": "UcN6ntYE_L"
+			}
+		},
+		"07C3rk5SYO": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"text": "Enter your name",
+				"deletable": true,
+				"style": {
+					"display": "flex"
+				}
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "BtInc-_zHj",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"UcN6ntYE_L": {
+			"type": {
+				"resolvedName": "Input"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onchange"
+						],
+						"id": "fk3j58fbGiPRJ5UcbkGmMn",
+						"method": "UserHub.changeCurrentUserName",
+						"params": [
+							{
+								"name": "userId",
+								"type": "Integer",
+								"datasource": "UserId",
+								"id": "9iE84XXGwGkmKHAQTHWFcv"
+							},
+							{
+								"name": "name",
+								"type": "Text",
+								"datasource": "enterYourName",
+								"id": "mDvaS7cbURHBGXspLvJn2y",
+								"isHardCoded": false,
+								"hardCodedType": "string",
+								"hardCodedValue": ""
+							}
+						],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "result",
+							"type": "Variable"
+						}
+					},
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onchange"
+						],
+						"id": "uRJrQJXbLRBZhaLZDQKH2M",
+						"method": "UserHub.getUserList",
+						"params": [],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "userList",
+							"type": "Collection",
+							"datasource": "UserHubCollection"
+						}
+					}
+				],
+				"deletable": false,
+				"className": "w-full bg-transparent",
+				"type": "text",
+				"moveable": false,
+				"placeholder": "",
+				"readonly": false,
+				"datasource": "enterYourName",
+				"dataType": "string",
+				"style": {
+					"width": "300px",
+					"display": "flex"
+				}
+			},
+			"displayName": "Input",
+			"custom": {},
+			"parent": "BtInc-_zHj",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"-moUKsS0rp": {
+			"type": {
+				"resolvedName": "Button"
+			},
+			"isCanvas": false,
+			"props": {
+				"text": "Refresh",
+				"classNames": [],
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onclick"
+						],
+						"id": "fnNBzuXWaysXNVhNMkAMxn",
+						"method": "UserHub.getUserList",
+						"params": [],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "userList",
+							"type": "Collection",
+							"datasource": "UserHubCollection"
+						}
+					}
+				],
+				"iconPosition": "hidden",
+				"style": {
+					"display": "flex",
+					"textAlign": "center"
+				}
+			},
+			"displayName": "Button",
+			"custom": {},
+			"parent": "pQD1UQrcH5",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"icon": "53SNVAB6zh"
+			}
+		},
+		"53SNVAB6zh": {
+			"type": {
+				"resolvedName": "Icon"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"icon": "fa-regular fa-star"
+			},
+			"displayName": "Icon",
+			"custom": {},
+			"parent": "-moUKsS0rp",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"V6Iq78nKF7": {
+			"type": {
+				"resolvedName": "Button"
+			},
+			"isCanvas": false,
+			"props": {
+				"text": "Disconnect",
+				"classNames": [],
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onclick"
+						],
+						"id": "69GnMr4mHDxjJTt7oj4wMA",
+						"method": "UserHub.disconnect",
+						"params": [
+							{
+								"name": "userId",
+								"type": "Integer",
+								"datasource": "UserId",
+								"id": "doZUSJ5rTgHKxXpdazygi1"
+							}
+						],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "result",
+							"type": "Variable"
+						}
+					}
+				],
+				"iconPosition": "hidden",
+				"style": {
+					"display": "flex"
+				}
+			},
+			"displayName": "Button",
+			"custom": {},
+			"parent": "pQD1UQrcH5",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"icon": "b0qCQlHbRw"
+			}
+		},
+		"b0qCQlHbRw": {
+			"type": {
+				"resolvedName": "Icon"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"icon": "fa-regular fa-star"
+			},
+			"displayName": "Icon",
+			"custom": {},
+			"parent": "V6Iq78nKF7",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		}
+	}
+}
