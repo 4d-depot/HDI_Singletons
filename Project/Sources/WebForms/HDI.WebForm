@@ -23,6 +23,13 @@
 				"namespace": "",
 				"dataType": "number",
 				"initialValue": "0"
+			},
+			{
+				"id": "enterYourActivity",
+				"type": "scalar",
+				"namespace": "",
+				"dataType": "string",
+				"initialValue": ""
 			}
 		],
 		"styles": [
@@ -87,7 +94,9 @@
 			"hidden": false,
 			"nodes": [
 				"rTKB3qIGCh",
-				"ZZ8bsO1PWN"
+				"ZZ8bsO1PWN",
+				"XnncqD9jsy",
+				"uRO51KB60s"
 			],
 			"linkedNodes": {}
 		},
@@ -143,9 +152,7 @@
 			"parent": "ZZ8bsO1PWN",
 			"hidden": false,
 			"nodes": [
-				"BtInc-_zHj",
-				"-moUKsS0rp",
-				"V6Iq78nKF7"
+				"BtInc-_zHj"
 			],
 			"linkedNodes": {}
 		},
@@ -190,7 +197,7 @@
 						"title": "ID",
 						"source": "_id",
 						"format": "",
-						"width": "200px",
+						"width": "100px",
 						"sorting": false,
 						"id": "mgtYWtdnBhhnvVSMY2ZUmL"
 					},
@@ -198,15 +205,23 @@
 						"title": "Name",
 						"source": "_name",
 						"format": "",
-						"width": "350px",
+						"width": "250px",
 						"sorting": false,
 						"id": "9JZGscxDgFaxNhx8wiDmo5"
+					},
+					{
+						"title": "Activity",
+						"source": "_activity",
+						"format": "",
+						"width": "250px",
+						"sorting": false,
+						"id": "q1EmXbW4TghqaRDfJ3YyYi"
 					},
 					{
 						"title": "Disconnection",
 						"source": "_disconnectionTime",
 						"format": "",
-						"width": "200px",
+						"width": "180px",
 						"sorting": false,
 						"id": "bSa7414kookHbeddKmQ47R"
 					},
@@ -214,7 +229,7 @@
 						"title": "Status",
 						"source": "_statusName",
 						"format": "",
-						"width": "200px",
+						"width": "180px",
 						"sorting": false,
 						"id": "qFXqkmN4x6oiDb8kabLph9"
 					}
@@ -382,7 +397,7 @@
 			},
 			"displayName": "Button",
 			"custom": {},
-			"parent": "pQD1UQrcH5",
+			"parent": "uRO51KB60s",
 			"hidden": false,
 			"nodes": [],
 			"linkedNodes": {
@@ -446,7 +461,7 @@
 			},
 			"displayName": "Button",
 			"custom": {},
-			"parent": "pQD1UQrcH5",
+			"parent": "uRO51KB60s",
 			"hidden": false,
 			"nodes": [],
 			"linkedNodes": {
@@ -468,6 +483,162 @@
 			"parent": "V6Iq78nKF7",
 			"hidden": false,
 			"nodes": [],
+			"linkedNodes": {}
+		},
+		"XnncqD9jsy": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"iterableChild": true,
+				"style": {
+					"display": "flex"
+				}
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"mAi9Zpr_Y6"
+			],
+			"linkedNodes": {}
+		},
+		"mAi9Zpr_Y6": {
+			"type": {
+				"resolvedName": "TextInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"placeholder": "placeholder",
+				"label": "label",
+				"labelPosition": "left",
+				"iterableChild": true
+			},
+			"displayName": "Text Input",
+			"custom": {},
+			"parent": "XnncqD9jsy",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "hsoa09pRpd",
+				"input": "bPosAk9bqv"
+			}
+		},
+		"hsoa09pRpd": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"text": "Enter your activity (for example: in a meeting, at the beach, coffee break, etc...)",
+				"deletable": true
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "mAi9Zpr_Y6",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"bPosAk9bqv": {
+			"type": {
+				"resolvedName": "Input"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onchange"
+						],
+						"id": "1sScytPuWErhw9iqEPgfw8",
+						"method": "UserHub.changeCurrentUserActivity",
+						"params": [
+							{
+								"name": "userId",
+								"type": "Integer",
+								"datasource": "UserId",
+								"id": "daCr8BPsVftgViL6TzZvcs"
+							},
+							{
+								"name": "activity",
+								"type": "Text",
+								"datasource": "enterYourActivity",
+								"id": "wCNRstfAQU5c8c55XEdrdk"
+							}
+						],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "result",
+							"type": "Variable"
+						}
+					},
+					{
+						"type": "method",
+						"dataclass": "UserHub",
+						"events": [
+							"onchange"
+						],
+						"id": "cithrS85ojLZHEs9qHpvXL",
+						"method": "UserHub.getUserList",
+						"params": [],
+						"datasource": "",
+						"methodType": "singleton",
+						"returns": {
+							"name": "userList",
+							"type": "Collection",
+							"datasource": "UserHubCollection"
+						}
+					}
+				],
+				"deletable": false,
+				"className": "w-full bg-transparent",
+				"type": "text",
+				"style": {
+					"width": "300px"
+				},
+				"moveable": false,
+				"placeholder": "",
+				"readonly": false,
+				"datasource": "enterYourActivity",
+				"dataType": "string"
+			},
+			"displayName": "Input",
+			"custom": {},
+			"parent": "mAi9Zpr_Y6",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"uRO51KB60s": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"iterableChild": true,
+				"style": {
+					"display": "flex"
+				}
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"-moUKsS0rp",
+				"V6Iq78nKF7"
+			],
 			"linkedNodes": {}
 		}
 	}

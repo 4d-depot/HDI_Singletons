@@ -36,8 +36,10 @@
 					"dataSourceTypeHint": "object",
 					"action": "gotoPage",
 					"events": [
-						"onClick"
-					]
+						"onClick",
+						"onHeader"
+					],
+					"method": "ObjectMethods/Tab Control.4dm"
 				},
 				"BtnOK": {
 					"type": "button",
@@ -137,22 +139,6 @@
 						},
 						{
 							"header": {
-								"text": "Picture",
-								"name": "Picture"
-							},
-							"name": "Column1",
-							"footer": {
-								"name": "Footer1"
-							},
-							"dataSourceTypeHint": "picture",
-							"dataSource": "This:C1470._picture",
-							"resizable": true,
-							"enterable": false,
-							"pictureFormat": "proportionalCenter",
-							"width": 100
-						},
-						{
-							"header": {
 								"name": "Name",
 								"text": "Name"
 							},
@@ -163,8 +149,20 @@
 							},
 							"dataSource": "This:C1470._name",
 							"enterable": false,
-							"width": 340,
+							"width": 211,
 							"textAlign": "left"
+						},
+						{
+							"header": {
+								"name": "Header1",
+								"text": "Activity"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 223,
+							"dataSource": "This:C1470._activity"
 						},
 						{
 							"header": {
@@ -178,7 +176,7 @@
 							"dataSource": "This:C1470._status",
 							"enterable": false,
 							"pictureFormat": "proportionalCenter",
-							"width": 109
+							"width": 103
 						},
 						{
 							"header": {
@@ -187,30 +185,18 @@
 							},
 							"name": "Column3",
 							"dataSource": "This:C1470._disconnectionTime",
-							"width": 148,
+							"width": 160,
 							"footer": {
 								"name": "Footer5"
 							}
 						}
 					]
 				},
-				"Name1": {
-					"type": "button",
-					"text": "Enter your name",
-					"top": 478,
-					"left": 192,
-					"width": 237,
-					"height": 60,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Name1.4dm"
-				},
 				"Choose your picture": {
 					"type": "button",
-					"text": "Choose your picture",
-					"top": 478,
-					"left": 487,
+					"text": "Choose your activity",
+					"top": 484,
+					"left": 362,
 					"width": 237,
 					"height": 60,
 					"events": [
@@ -232,5 +218,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 158
+	"geometryStamp": 162
 }

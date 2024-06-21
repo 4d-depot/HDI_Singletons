@@ -69,7 +69,7 @@ exposed shared Function getUserList()->$userList : Collection
 	
 	$userList:=New collection:C1472()
 	For each ($item; This:C1470.userList)
-		$user:=New object:C1471("_disconnectionTime"; $item._disconnectionTime; "_id"; $item._id; "_statusName"; $item._statusName; "_name"; $item._name)
+		$user:=New object:C1471("_disconnectionTime"; $item._disconnectionTime; "_id"; $item._id; "_statusName"; $item._statusName; "_name"; $item._name; "_activity"; $item._activity)
 		$userList.push($user)
 	End for each 
 	
@@ -79,4 +79,11 @@ exposed shared Function changeCurrentUserName($userId : Integer; $name : Text)
 	$user:=This:C1470.getUser($userId)
 	If ($user#Null:C1517)
 		$user.name:=$name
+	End if 
+	
+exposed shared Function changeCurrentUserActivity($userId : Integer; $activity : Text)
+	
+	$user:=This:C1470.getUser($userId)
+	If ($user#Null:C1517)
+		$user.activity:=$activity
 	End if 
