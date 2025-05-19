@@ -14,6 +14,10 @@ shared Function set name($name : Text)
 	This:C1470._name:=$name
 	This:C1470.status:="Connected"
 	
+Function get name()->$name : Text
+	
+	$name:=This:C1470._name
+	
 shared Function set disconnectedTime($time : Integer)
 	
 	This:C1470._disconnectedTime:=$time
